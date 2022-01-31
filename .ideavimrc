@@ -1,0 +1,120 @@
+" Set 
+set clipboard+=unnamed
+set clipboard+=ideaput
+
+set ignorecase
+set ideamarks
+
+let mapleader=" "
+
+map \o :e C:\\Users\\savsmith\\ideavimrclink<CR>
+map \r :w <bar> :source C:\\Users\\savsmith\\ideavimrclink<CR> <bar>
+map \s :action ShowSettings<CR>
+map \a :action VimFindActionIdAction<CR>
+
+nnoremap <c-.> :action ShowIntentionActions<CR>
+nnoremap <Down> <c-e>
+nnoremap <Up> <c-y>
+
+" windows and splits
+nnoremap wv :action MoveTabRight<CR>
+nnoremap wu :action UnsplitAll<CR>
+nnoremap wh <c-w>h
+nnoremap wl <c-w>l
+nnoremap ww <c-w>w
+nnoremap <s-h> :action StretchSplitToLeft<CR>
+nnoremap <s-l> :action StretchSplitToRight<CR>
+nnoremap wc :action CloseAllEditorsButActive<CR>
+nnoremap wq :q<CR>
+nnoremap <c-s>f :action FindInPath<CR>
+
+nnoremap <leader>wh :action HideAllWindows<CR> <bar> :action FocusEditor<CR>
+nnoremap <leader>wd :action ToggleDistractionFreeMode<CR> <bar> :action FocusEditor<CR>
+nnoremap <leader>wt :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>we :action ActivateProblemsViewToolWindow<CR>
+nnoremap <leader>wf :action ActivateFindToolWindow<CR>
+nnoremap <leader>wu :action ActivateUnitTestsToolWindow<CR>
+nnoremap <leader>wp :action ActivateProjectToolWindow<CR>
+
+" unit testing
+vnoremap <leader>ur :action RiderUnitTestRunContextAction<CR>
+nnoremap <leader>ur :action RiderUnitTestRunContextAction<CR>
+nnoremap <leader>ud :action RiderUnitTestDebugContextAction<CR>
+nnoremap <leader>un :action RiderUnitTestRepeatPreviousRunAction<CR>
+
+"" gotos
+nnoremap gf :action GotoFile<CR>
+nnoremap ge :action GotoNextError<CR>
+nnoremap gE :action ReSharperGotoNextErrorInSolution<CR>
+nnoremap gu :action FindUsages<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap go :action GotoOverride<CR>
+nnoremap <s-TAB> :action PreviousTab<CR> 
+nnoremap <TAB> :action NextTab<CR> 
+nnoremap gs :action Switcher<CR>
+nnoremap gr :action RecentFiles<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gb :action JumpToLastChange<CR>
+nnoremap gn :action VcsShowNextChangeMarker<CR>
+
+""" editor helpers
+nnoremap <leader>c :action RiderCollapseToDefinitions<CR>
+nnoremap <leader>j :action MethodDown<CR>
+nnoremap <leader>k :action MethodUp<CR>
+nnoremap <leader>d :action QuickImplementations<CR>
+nnoremap <leader>p :action QuickPreview<CR>
+nnoremap <leader>r :action RenameElement<CR>
+nnoremap <leader>e :action ShowErrorDescription<CR>
+nnoremap <leader>a :action Annotate<CR>
+nnoremap <leader>o :action FileStructurePopup<CR>
+vnoremap <leader>f :action ReformatCode<CR>
+vnoremap <leader>b :action CommentByBlockComment<CR>
+vnoremap <leader>r :action Replace<CR>
+nnoremap <leader>x :action VcsShowCurrentChangeMarker<CR>
+nnoremap <leader>X :action Vcs.RollbackChangedLines<CR>
+""" Debug helpers
+
+nnoremap ;s :action Stop<CR>
+nnoremap ;n :action StepOver<CR>
+nnoremap ;i :action SmartStepInto<CR>
+nnoremap ;r :action Resume<CR>
+nnoremap ;b :action ToggleLineBreakpoint<CR>
+nnoremap ;d :action ContextDebug<CR>
+nnoremap ;w :action Debugger.AddToWatch<CR>
+
+""" helper mappings
+nnoremap ,j :action GitToolBox.BranchIssues<CR>
+
+""" Commands
+command! Debug action Debug
+command! Diff action Compare.LastVersion 
+command! New action AddAction
+command! Fetch action Git.Fetch
+command! Checkout action Git.Branches
+command! Commit action CheckinProject
+command! Jira action Macro.GotoJiraIssue
+command! Macro action StartStopMacroRecording
+command! Macros action EditMacros
+command! LM action PlaybackLastMacro
+
+nnoremap 0 ^
+nnoremap ^ 0
+
+vnoremap 0 ^
+vnoremap ^ 0
+vnoremap v iB
+
+inoremap '' `
+xnoremap p pgvy
+vnoremap p pgvyy
+
+nnoremap yw yiw
+nnoremap yiw yw
+
+vnoremap ; /;<CR>
+
+set NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapCloseDir='h'
+
+set multiple-cursors
